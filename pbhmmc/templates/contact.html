@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+        <div class="contact-item">
+            <i class="fa fa-envelope"></i>
+            <span>Email:</span>
+            <a href="mailto:your-email@example.com">shamsadparayil@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <i class="fa fa-phone"></i>
+            <span>Phone:</span>
+            <a href="tel:+123456789">+0557902815</a>
+        </div>
+        <div class="contact-item">
+            <i class="fa fa-map-marker"></i>
+            <span>Address:</span>
+            alain, alain, uae
+        </div>
+    </div>
+    <div class="contact-form">
+        <h2>Send us a message</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/0557902815" class="whatsapp-button" target="_blank">
+                <i class="fa fa-whatsapp"></i> Send via WhatsApp
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}

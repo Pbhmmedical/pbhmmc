@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>HAMDAN MEDICAL CENTER - Comprehensive Healthcare Services</title>
+
+{% endblock %}
+
+{% block content %}
+<!-- Existing content goes here -->
+
+{% comment %}
+    SEO Meta Tags
+{% endcomment %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Discover a comprehensive range of healthcare services tailored to meet your needs at Hamdan Medical Center. Experienced and compassionate healthcare professionals, state-of-the-art facilities, and personalized care.">
+    <meta name="keywords" content="healthcare, medical center, primary care, specialized departments, gynecology, appointments, patient care">
+    <meta name="author" content="Your Name">
+
+    <!-- Open Graph Meta Tags (Facebook, Twitter, etc.) -->
+    <meta property="og:title" content="Hamdan Medical Center - Your Trusted Healthcare Provider">
+    <meta property="og:description" content="Discover a comprehensive range of healthcare services tailored to meet your needs at Hamdan Medical Center. Experienced and compassionate healthcare professionals, state-of-the-art facilities, and personalized care.">
+    <meta property="og:image" content="{% static 'images/hamdan.jpeg' %}">
+    <meta property="og:url" content="{% url 'service' %}">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yourtwitterhandle">
+    <meta name="twitter:title" content="Hamdan Medical Center - Your Trusted Healthcare Provider">
+    <meta name="twitter:description" content="Discover a comprehensive range of healthcare services tailored to meet your needs at Hamdan Medical Center. Experienced and compassionate healthcare professionals, state-of-the-art facilities, and personalized care.">
+    <meta name="twitter:image" content="{% static 'images/hamdan.jpeg' %}">
+
+<link rel="apple-touch-icon" sizes="180x180" href="{% static '/images/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static '/images/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static '/images/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static '/site.webmanifest' %}">
+
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://www.hmc.hamdanmedical.ae/service">
+
+
+    <!-- Additional meta tags can be added as needed -->
+</head>
+
+<main class="services-page">
+    <!-- Existing content goes here -->
+</main>
+
+
+
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="d-inline-block border rounded-pill py-1 px-4">Services</p>
+            <h1>Health Care Solutions</h1>
+        </div>
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{{ service.wow_delay }}">
+                <div class="service-item bg-light rounded h-100 p-5">
+                    <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 65px; height: 65px;">
+                        <i class="{{ service.icon_class }} text-primary fs-4"></i>
+                    </div>
+                    <h4 class="mb-3">{{ service.title }}</h4>
+                    <p class="mb-4">{{ service.description }}</p>
+                    <a class="btn" href="{{ service.read_more_link }}" target="_blank">
+                    <i class="fa fa-plus text-primary me-3"></i>Read More
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+
+
+
+
+    <section class="appointment-section">
+        <p class="call-to-action">Ready to experience quality healthcare? <a href="{% url 'contact' %}" class="contact-link">Contact us</a> for appointments or inquiries.</p>
+    </section>
+
+    <section class="image-section">
+        <img src="{% static 'images/hamdan.jpeg' %}" alt="Hamdan Medical Center Building">
+    </section>
+</main>
+{% endblock %}

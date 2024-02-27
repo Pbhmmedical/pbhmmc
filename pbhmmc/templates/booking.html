@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %} <!-- Add this line -->
+
+{% block title %}
+Booking
+{% endblock %}
+
+{% block content %}
+<!-- Rest of your template code -->
+
+<div class="container">
+    <h1 class="text-center">Make An Appointment</h1>
+    <hr>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" class="my-4">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-primary custom-button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add your custom CSS styles here */
+    .card {
+        background-color: #ffffff; /* White */
+    }
+
+    .btn-primary {
+        background-color: #808080; /* Gray */
+        color: #ffffff;
+    }
+
+    /* Style form fields */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    /* Style text inputs */
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    /* Style the submit button */
+    .custom-button {
+        background-color: #007bff; /* Blue */
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+
+{% endblock %}

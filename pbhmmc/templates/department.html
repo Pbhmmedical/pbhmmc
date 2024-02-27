@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Department
+{% endblock %}
+
+{% block content %}
+<section class="container my-5">
+  <h1 class="text-center mb-4">Our Departments</h1>
+  <style>
+    .department-description {
+      /* First style for the department description */
+      font-style: italic;
+      color: #888;
+    }
+
+    .department-description.another-style {
+      /* Second style for the department description */
+      background-color: #f0f0f0;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <div class="row">
+    {% for d in dept %}
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title">{{ d.dep_name }}</h2>
+          <p class="card-text department-description another-style">{{ d.dep_description }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

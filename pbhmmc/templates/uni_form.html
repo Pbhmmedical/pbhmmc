@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% load crispy_forms_tags %}
+
+{% block bootstrap_form %}
+
+<div class="bootstrap4-form">
+    {% if form|is_crispy %}
+        {% crispy form %}
+    {% else %}
+        {% include 'bootstrap4/layout/form.html' %}
+    {% endif %}
+</div>
+
+{% endblock %}
